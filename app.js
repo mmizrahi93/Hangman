@@ -17,15 +17,17 @@ numberShowing.innerText = wrongGuesses
 
 function checkLetter() {
     console.log('letter checked')
-    for (let i = 0; i < splitWord.length; i++) {
-        if (userGuess.value === splitWord[i]) {
-            console.log('correct')
-        }
-        else {
-            console.log('wrong')
+    // INDEX OF
+    const result = splitWord.indexOf(userGuess.value)
+    if (result === -1) {
+        console.log('wrong')
             // Figure out method to decrement guesses by one
             wrongGuesses--
             numberShowing.innerText = wrongGuesses
+    }
+    for (let i = 0; i < splitWord.length; i++) {
+        if (userGuess.value === splitWord[i]) {
+            console.log('correct')
         }
     }
 }
