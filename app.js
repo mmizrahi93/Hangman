@@ -11,17 +11,32 @@ let incorrectGuessedLetters = []
 let notYetGuessedLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 let wrongGuesses = 6
 let splitWord = randomWord.split('')
+let numberShowing = incorrectGuesses
 
-let numberSHowing = incorrectGuesses
+numberShowing.innerText = wrongGuesses
 
-numberSHowing.innerText = `${wrongGuesses}`
+function checkLetter() {
+    console.log('letter checked')
+    for (let i = 0; i < splitWord.length; i++) {
+        if (userGuess.value === splitWord[i]) {
+            console.log('correct')
+        }
+        else {
+            console.log('wrong')
+            wrongGuesses--
+            numberShowing.innerText = wrongGuesses
+        }
+    }
+}
 
 const guessLetter = () => {
     event.preventDefault()
     console.log(userGuess.value)
     guessedLetters.push(userGuess.value)
     console.log(guessedLetters)
+    console.log(splitWord)
+    checkLetter()
+    // Keep this last
     userGuess.value = ''
 }
-
 
