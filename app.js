@@ -17,7 +17,7 @@ numberShowing.innerText = wrongGuesses
 // FUNCTION TO START GAME
 function startGame() {
     showWord()
-    determineWin()
+
 }
 
 // FUNCTION TO SHOW THE WORD THAT IS BEING PLAYED
@@ -55,8 +55,10 @@ function guessLetter() {
     event.preventDefault()
     guessedLetters.push(userGuess.value) 
     checkLetter()
+    determineWin()
     // Keep this last
     userGuess.value = ''
+
 }
 
 // FUNCTION TO DETERMINE WINNER
@@ -64,6 +66,7 @@ function determineWin() {
     if (splitWord.length === correctGuess.length) {
         console.log('winner')
     }
+
 }
 
 
