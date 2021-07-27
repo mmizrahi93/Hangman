@@ -5,6 +5,7 @@ const incorrectGuesses = document.querySelector('.incorrect-guesses')
 let userGuess = document.getElementById('letter-input')
 let randomWord = 'hangman'
 let guessedLetters = [];
+let correctGuess = [];
 let incorrectGuessedLetters = []
 let notYetGuessedLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 let wrongGuesses = 6
@@ -16,6 +17,7 @@ numberShowing.innerText = wrongGuesses
 // FUNCTION TO START GAME
 function startGame() {
     showWord()
+    determineWin()
 }
 
 // FUNCTION TO SHOW THE WORD THAT IS BEING PLAYED
@@ -42,6 +44,8 @@ function checkLetter() {
         if (userGuess.value === splitWord[i]) {
             let letterDivs = document.querySelectorAll('.letter-div')
             letterDivs[i].innerHTML = userGuess.value
+            correctGuess.push(userGuess.value)
+            console.log(correctGuess)
         }
     }
 }
@@ -49,13 +53,18 @@ function checkLetter() {
 // FUNCTION TO GRAB INPUT FROM PLAYER 
 function guessLetter() {
     event.preventDefault()
-    console.log(userGuess.value)
-    guessedLetters.push(userGuess.value)
-    console.log(guessedLetters)
-    console.log(splitWord)
+    guessedLetters.push(userGuess.value) 
     checkLetter()
     // Keep this last
     userGuess.value = ''
 }
+
+// FUNCTION TO DETERMINE WINNER
+function determineWin() {
+    if (splitWord.length === correctGuess.length) {
+        console.log('winner')
+    }
+}
+
 
 startGame()
