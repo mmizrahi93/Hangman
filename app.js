@@ -1,5 +1,5 @@
 const alreadyGuessed = document.querySelector('.already-guessed');
-const letterInput = document.querySelector('.letter-input');
+// const letterInput = document.querySelector('.letter-input');
 const gameWord = document.querySelector('.game-word');
 const incorrectGuesses = document.querySelector('.incorrect-guesses')
 let userGuess = document.getElementById('letter-input')
@@ -17,7 +17,11 @@ let numberSHowing = incorrectGuesses
 numberSHowing.innerText = `${wrongGuesses}`
 
 const guessLetter = () => {
+    event.preventDefault()
     console.log(userGuess.value)
+    guessedLetters.push(userGuess.value)
+    console.log(guessedLetters)
+    userGuess.value = ''
 }
 
 
