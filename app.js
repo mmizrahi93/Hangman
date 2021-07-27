@@ -1,25 +1,24 @@
+// DECLARING VARIABLES FOR ELEMENTS
 const alreadyGuessed = document.querySelector('.already-guessed');
-// const letterInput = document.querySelector('.letter-input');
 const gameWord = document.querySelector('.game-word');
 const incorrectGuesses = document.querySelector('.incorrect-guesses')
 let userGuess = document.getElementById('letter-input')
-// let lettersGenerated = document.querySelectorAll('.letter-div')
-
 let randomWord = 'hangman'
-
 let guessedLetters = [];
 let incorrectGuessedLetters = []
 let notYetGuessedLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 let wrongGuesses = 6
 let splitWord = randomWord.split('')
 let numberShowing = incorrectGuesses
-
+ 
 numberShowing.innerText = wrongGuesses
 
+// FUNCTION TO START GAME
 function startGame() {
     showWord()
 }
 
+// FUNCTION TO SHOW THE WORD THAT IS BEING PLAYED
 function showWord() {
     for (i = 0; i < splitWord.length; i++) {
         const letterDivs = document.createElement('div')
@@ -29,13 +28,13 @@ function showWord() {
     }
 }
 
+// FUNCTION TO CHECK PLAYER GUESS AGAINST WORD BEING PLAYED
 function checkLetter() {
     console.log('letter checked')
     // INDEX OF
     const result = splitWord.indexOf(userGuess.value)
     if (result === -1) {
         console.log('wrong')
-            // Figure out method to decrement guesses by one
             wrongGuesses--
             numberShowing.innerText = wrongGuesses
     }
@@ -47,7 +46,8 @@ function checkLetter() {
     }
 }
 
-const guessLetter = () => {
+// FUNCTION TO GRAB INPUT FROM PLAYER 
+function guessLetter() {
     event.preventDefault()
     console.log(userGuess.value)
     guessedLetters.push(userGuess.value)
