@@ -16,7 +16,8 @@ numberShowing.innerText = wrongGuesses
 
 // FUNCTION TO START GAME
 function startGame() {
-    showWord()
+    // const letterDivs = document.querySelectorAll('.letter-div')
+    //   letterDivs.removeChild()
 
 }
 
@@ -65,19 +66,20 @@ function guessLetter() {
 function determineWin() {
     if (splitWord.length === correctGuess.length) {
         console.log('winner')
+        gameWord.replaceChildren()
     }
 }
 
-const getWord = () => {
-    // fetch(baseURL)
-    // .then(res => console.log(res))
+function getWord() {
     fetch("http://random-word-api.herokuapp.com/word?number=1")
       .then((data) => {
         return data.json();
       })
       .then((post) => {
-        console.log(post);
+        randomWord = post
       });
+      console.log(randomWord)
+      showWord()
+      startGame()
   };
 
-startGame()
