@@ -66,8 +66,18 @@ function determineWin() {
     if (splitWord.length === correctGuess.length) {
         console.log('winner')
     }
-
 }
 
+const getWord = () => {
+    // fetch(baseURL)
+    // .then(res => console.log(res))
+    fetch("http://random-word-api.herokuapp.com/word?number=1")
+      .then((data) => {
+        return data.json();
+      })
+      .then((post) => {
+        console.log(post);
+      });
+  };
 
 startGame()
