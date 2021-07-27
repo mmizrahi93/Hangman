@@ -26,7 +26,6 @@ function showWord() {
         letterDivs.setAttribute('class', 'letter-div')
         letterDivs.innerHTML = '_'
         gameWord.appendChild(letterDivs)
-        
     }
 }
 
@@ -42,7 +41,8 @@ function checkLetter() {
     }
     for (let i = 0; i < splitWord.length; i++) {
         if (userGuess.value === splitWord[i]) {
-            console.log('correct')
+            let letterDivs = document.querySelectorAll('.letter-div')
+            letterDivs[i].innerHTML = userGuess.value
         }
     }
 }
