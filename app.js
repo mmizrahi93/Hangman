@@ -3,6 +3,7 @@ const alreadyGuessed = document.querySelector('.already-guessed');
 const gameWord = document.querySelector('.game-word');
 const incorrectGuesses = document.querySelector('.incorrect-guesses')
 let userGuess = document.getElementById('letter-input')
+// let lettersGenerated = document.querySelectorAll('.letter-div')
 
 let randomWord = 'hangman'
 
@@ -14,6 +15,20 @@ let splitWord = randomWord.split('')
 let numberShowing = incorrectGuesses
 
 numberShowing.innerText = wrongGuesses
+
+function startGame() {
+    showWord()
+}
+
+function showWord() {
+    for (i = 0; i < splitWord.length; i++) {
+        const letterDivs = document.createElement('div')
+        letterDivs.setAttribute('class', 'letter-div')
+        letterDivs.innerHTML = '_'
+        gameWord.appendChild(letterDivs)
+        
+    }
+}
 
 function checkLetter() {
     console.log('letter checked')
@@ -43,3 +58,4 @@ const guessLetter = () => {
     userGuess.value = ''
 }
 
+startGame()
