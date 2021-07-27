@@ -23,6 +23,7 @@ function checkLetter() {
         }
         else {
             console.log('wrong')
+            // Figure out method to decrement guesses by one
             wrongGuesses--
             numberShowing.innerText = wrongGuesses
         }
