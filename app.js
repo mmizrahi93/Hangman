@@ -16,8 +16,9 @@ numberShowing.innerText = wrongGuesses
 
 // FUNCTION TO START GAME
 function startGame() {
-    showWord()
-    determineWin()
+    // const letterDivs = document.querySelectorAll('.letter-div')
+    //   letterDivs.removeChild()
+
 }
 
 // FUNCTION TO SHOW THE WORD THAT IS BEING PLAYED
@@ -55,16 +56,30 @@ function guessLetter() {
     event.preventDefault()
     guessedLetters.push(userGuess.value) 
     checkLetter()
+    determineWin()
     // Keep this last
     userGuess.value = ''
+
 }
 
 // FUNCTION TO DETERMINE WINNER
 function determineWin() {
     if (splitWord.length === correctGuess.length) {
         console.log('winner')
+        gameWord.replaceChildren()
     }
 }
 
+function getWord() {
+    fetch("http://random-word-api.herokuapp.com/word?number=1")
+      .then((data) => {
+        return data.json();
+      })
+      .then((post) => {
+        randomWord = post
+      });
+      console.log(randomWord)
+      showWord()
+      startGame()
+  };
 
-startGame()
