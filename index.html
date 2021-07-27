@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./main.css">
-    <script src="/app.js" defer></script>
-    <title>Document</title>
+    <script src="./app.js" defer></script>
+    <title>Hangman</title>
 </head>
 
 <body>
@@ -16,11 +16,19 @@
         <div class="already-guessed">
 
         </div>
-        <div class="letter-input">
-            <input type="text" name="" id="">
+        <div class="input-container">
+            <form onsubmit=guessLetter()>
+                <label for="letter-input">Guess A Letter:</label><br>
+                <input type="text" class="letter-input" id='letter-input' name='letter-input'><br>
+                <input type="submit" value='Submit'/>
+              </form>
         </div>
         <div class="game-word">
 
+        </div>
+        <div class="incorrect-guesses-container">
+            <h4>Incorrect Guesses Remaining: </h4>
+            <h4 class='incorrect-guesses'></h4>
         </div>
     </div>
 </body>
