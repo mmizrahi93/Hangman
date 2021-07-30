@@ -3,7 +3,7 @@ const alreadyGuessed = document.querySelector('.already-guessed');
 const gameWord = document.querySelector('.game-word');
 const incorrectGuesses = document.querySelector('.incorrect-guesses')
 let userGuess = document.getElementById('letter-input')
-let randomWord = 'hangman'
+let randomWord = ''
 let guessedLetters = [];
 let correctGuess = [];
 let incorrectGuessedLetters = []
@@ -18,7 +18,6 @@ numberShowing.innerText = wrongGuesses
 function startGame() {
     // const letterDivs = document.querySelectorAll('.letter-div')
     //   letterDivs.removeChild()
-
 }
 
 // FUNCTION TO SHOW THE WORD THAT IS BEING PLAYED
@@ -80,6 +79,6 @@ function getWord() {
       });
       console.log(randomWord)
       showWord()
-      startGame()
   };
 
+  startGame()
