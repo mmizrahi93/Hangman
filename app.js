@@ -3,7 +3,7 @@ const alreadyGuessed = document.querySelector('.already-guessed');
 const gameWord = document.querySelector('.game-word');
 const incorrectGuesses = document.querySelector('.incorrect-guesses')
 let userGuess = document.getElementById('letter-input')
-let wordBank = ['austin', 'sacramento', 'nashville', 'albany']
+let wordBank = ["Montgomery","Juneau","Phoenix","Little Rock","Sacramento","Denver","Hartford","Dover","Tallahassee","Atlanta","Honolulu","Boise","Springfield","Indianapolis","Des Moines","Topeka","Frankfort","Baton Rouge","Augusta","Annapolis","Boston","Lansing","St. Paul","Jackson","Jefferson City","Helena","Lincoln","Carson City","Concord","Trenton","Santa Fe","Albany","Raleigh","Bismarck","Columbus","Oklahoma City","Salem","Harrisburg","Providence","Columbia","Pierre","Nashville","Austin","Salt Lake City"]
 let guessedLetters = [];
 let correctGuess = [];
 let incorrectGuessedLetters = []
@@ -20,7 +20,6 @@ numberShowing.innerText = wrongGuesses
 function startGame() {
     // const letterDivs = document.querySelectorAll('.letter-div')
     //   letterDivs.removeChild()
-    
     getWord()
     
 }
@@ -83,6 +82,7 @@ function determineWin() {
 
 function getWord() {
     removeLetter()
+    let randomWord = wordBank[Math.floor(Math.random() * wordBank.length)]
     splitWord = randomWord.split('')
     console.log(randomWord)
     showWord()
@@ -90,3 +90,4 @@ function getWord() {
   };
 
 
+startGame()
