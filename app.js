@@ -61,9 +61,12 @@ function guessLetter() {
 
 // FUNCTION TO DETERMINE WINNER
 function determineWin() {
-    if (splitWord.length === correctGuess.length) {
-        console.log('winner')
-    }
+    console.log(`split word length is ${splitWord.length}`)
+    console.log(`correct guees word length is ${correctGuess.length}`)
+
+    // if (splitWord.length === correctGuess.length) {
+    //     console.log('winner')
+    // }
 }
 
 
