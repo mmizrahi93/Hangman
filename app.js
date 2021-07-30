@@ -20,7 +20,9 @@ numberShowing.innerText = wrongGuesses
 function startGame() {
     // const letterDivs = document.querySelectorAll('.letter-div')
     //   letterDivs.removeChild()
+    
     getWord()
+    
 }
 
 // FUNCTION TO SHOW THE WORD THAT IS BEING PLAYED
@@ -30,6 +32,13 @@ function showWord() {
         letterDivs.setAttribute('class', 'letter-div')
         letterDivs.innerHTML = '_'
         gameWord.appendChild(letterDivs)
+       
+    }
+}
+
+function removeLetter() {
+    for (i = 0; i < splitWord.length; i++) {
+        gameWord.innerHTML = ''
     }
 }
 
@@ -73,7 +82,9 @@ function determineWin() {
 }
 
 function getWord() {
+    removeLetter()
     splitWord = randomWord.split('')
+    console.log(randomWord)
     showWord()
     //   startGame()
   };
