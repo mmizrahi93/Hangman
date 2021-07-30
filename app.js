@@ -3,7 +3,7 @@ const alreadyGuessed = document.querySelector('.already-guessed');
 const gameWord = document.querySelector('.game-word');
 const incorrectGuesses = document.querySelector('.incorrect-guesses')
 let userGuess = document.getElementById('letter-input')
-let randomWord
+let wordBank = ['austin', 'sacramento', 'nashville', 'albany']
 let guessedLetters = [];
 let correctGuess = [];
 let incorrectGuessedLetters = []
@@ -12,6 +12,8 @@ let wrongGuesses = 6
 let splitWord = []
 let numberShowing = incorrectGuesses
  
+let randomWord = wordBank[Math.floor(Math.random() * wordBank.length)]
+
 numberShowing.innerText = wrongGuesses
 
 // FUNCTION TO START GAME
@@ -71,15 +73,9 @@ function determineWin() {
 }
 
 function getWord() {
-    fetch("http://random-word-api.herokuapp.com/word?number=1")
-      .then((data) => {
-        return data.json();
-      })
-      .then((post) => {
-        randomWord = post
-      });
-    console.log(randomWord)
-    splitWord = randomWord[0].split('')
+    splitWord = randomWord.split('')
     showWord()
     //   startGame()
   };
+
+
