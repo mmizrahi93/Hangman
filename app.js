@@ -18,9 +18,7 @@ numberShowing.innerText = wrongGuesses
 function startGame() {
     // const letterDivs = document.querySelectorAll('.letter-div')
     //   letterDivs.removeChild()
-
     getWord()
-
 }
 
 // FUNCTION TO SHOW THE WORD THAT IS BEING PLAYED
@@ -80,11 +78,8 @@ function getWord() {
       .then((post) => {
         randomWord = post
       });
-      console.log(randomWord)
-      splitWord = randomWord[0].split('')
-      showWord()
+    console.log(randomWord)
+    splitWord = randomWord[0].split('')
+    showWord()
     //   startGame()
   };
-
-
-startGame()
