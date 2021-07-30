@@ -3,13 +3,13 @@ const alreadyGuessed = document.querySelector('.already-guessed');
 const gameWord = document.querySelector('.game-word');
 const incorrectGuesses = document.querySelector('.incorrect-guesses')
 let userGuess = document.getElementById('letter-input')
-let randomWord = ''
+let randomWord
 let guessedLetters = [];
 let correctGuess = [];
 let incorrectGuessedLetters = []
 let notYetGuessedLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 let wrongGuesses = 6
-let splitWord = randomWord.split('')
+let splitWord = []
 let numberShowing = incorrectGuesses
  
 numberShowing.innerText = wrongGuesses
@@ -18,6 +18,7 @@ numberShowing.innerText = wrongGuesses
 function startGame() {
     // const letterDivs = document.querySelectorAll('.letter-div')
     //   letterDivs.removeChild()
+    getWord()
 }
 
 // FUNCTION TO SHOW THE WORD THAT IS BEING PLAYED
@@ -77,8 +78,8 @@ function getWord() {
       .then((post) => {
         randomWord = post
       });
-      console.log(randomWord)
-      showWord()
+    console.log(randomWord)
+    splitWord = randomWord[0].split('')
+    showWord()
+    //   startGame()
   };
-
-  startGame()
